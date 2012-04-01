@@ -170,22 +170,10 @@ SYSTEM NIOS
                span = "0x00000010";
                is_bridge = "0";
             }
-            Entry digitalIN/s1
-            {
-               address = "0x060000d0";
-               span = "0x00000010";
-               is_bridge = "0";
-            }
             Entry digitalOUT/s1
             {
                address = "0x060000e0";
                span = "0x00000010";
-               is_bridge = "0";
-            }
-            Entry Servos/avalon_slave
-            {
-               address = "0x06000000";
-               span = "0x00000020";
                is_bridge = "0";
             }
             Entry tick/s1
@@ -746,22 +734,10 @@ SYSTEM NIOS
                span = "0x00000010";
                is_bridge = "0";
             }
-            Entry digitalIN/s1
-            {
-               address = "0x060000d0";
-               span = "0x00000010";
-               is_bridge = "0";
-            }
             Entry digitalOUT/s1
             {
                address = "0x060000e0";
                span = "0x00000010";
-               is_bridge = "0";
-            }
-            Entry Servos/avalon_slave
-            {
-               address = "0x06000000";
-               span = "0x00000020";
                is_bridge = "0";
             }
             Entry tick/s1
@@ -851,6 +827,18 @@ SYSTEM NIOS
             Entry timeCounter/avalon_slave
             {
                address = "0x000038c0";
+               span = "0x00000020";
+               is_bridge = "0";
+            }
+            Entry visionSync/s1
+            {
+               address = "0x00000800";
+               span = "0x00000010";
+               is_bridge = "0";
+            }
+            Entry comVision/s1
+            {
+               address = "0x00000820";
                span = "0x00000020";
                is_bridge = "0";
             }
@@ -1063,7 +1051,7 @@ SYSTEM NIOS
          license_status = "encrypted";
          mainmem_slave = "onchipMem/s1";
          datamem_slave = "onchipMem/s1";
-         maincomm_slave = "";
+         maincomm_slave = "comVision/s1";
          germs_monitor_id = "";
       }
       class = "altera_nios2";
@@ -1877,148 +1865,172 @@ SYSTEM NIOS
             SIGNAL adm
             {
                format = "Logic";
-               name = "A_ipending_reg";
+               name = "A_ienable_reg_irq6";
                radix = "hexadecimal";
             }
             SIGNAL adn
             {
                format = "Logic";
-               name = "A_ipending_reg_irq0";
+               name = "A_ienable_reg_irq7";
                radix = "hexadecimal";
             }
             SIGNAL ado
             {
                format = "Logic";
-               name = "A_ipending_reg_irq1";
+               name = "A_ipending_reg";
                radix = "hexadecimal";
             }
             SIGNAL adp
             {
                format = "Logic";
-               name = "A_ipending_reg_irq2";
+               name = "A_ipending_reg_irq0";
                radix = "hexadecimal";
             }
             SIGNAL adq
             {
                format = "Logic";
-               name = "A_ipending_reg_irq3";
+               name = "A_ipending_reg_irq1";
                radix = "hexadecimal";
             }
             SIGNAL adr
             {
                format = "Logic";
-               name = "A_ipending_reg_irq4";
+               name = "A_ipending_reg_irq2";
                radix = "hexadecimal";
             }
             SIGNAL ads
             {
                format = "Logic";
-               name = "A_ipending_reg_irq5";
+               name = "A_ipending_reg_irq3";
                radix = "hexadecimal";
             }
             SIGNAL adt
             {
                format = "Logic";
-               name = "A_cpuid_reg";
+               name = "A_ipending_reg_irq4";
                radix = "hexadecimal";
             }
             SIGNAL adu
             {
                format = "Logic";
-               name = "E_valid_prior_to_hbreak";
+               name = "A_ipending_reg_irq5";
                radix = "hexadecimal";
             }
             SIGNAL adv
             {
-               format = "Divider";
-               name = "multicycle_custom_instruction";
-               radix = "";
+               format = "Logic";
+               name = "A_ipending_reg_irq6";
+               radix = "hexadecimal";
             }
             SIGNAL adw
             {
                format = "Logic";
-               name = "A_ctrl_custom_multi";
+               name = "A_ipending_reg_irq7";
                radix = "hexadecimal";
             }
             SIGNAL adx
             {
                format = "Logic";
-               name = "A_ci_multi_dataa";
+               name = "A_cpuid_reg";
                radix = "hexadecimal";
             }
             SIGNAL ady
             {
                format = "Logic";
-               name = "A_ci_multi_datab";
+               name = "E_valid_prior_to_hbreak";
                radix = "hexadecimal";
             }
             SIGNAL adz
             {
-               format = "Logic";
-               name = "A_ci_multi_ipending";
-               radix = "hexadecimal";
+               format = "Divider";
+               name = "multicycle_custom_instruction";
+               radix = "";
             }
             SIGNAL aea
             {
                format = "Logic";
-               name = "A_ci_multi_status";
+               name = "A_ctrl_custom_multi";
                radix = "hexadecimal";
             }
             SIGNAL aeb
             {
                format = "Logic";
-               name = "A_ci_multi_estatus";
+               name = "A_ci_multi_dataa";
                radix = "hexadecimal";
             }
             SIGNAL aec
             {
                format = "Logic";
-               name = "A_ci_multi_n";
+               name = "A_ci_multi_datab";
                radix = "hexadecimal";
             }
             SIGNAL aed
             {
                format = "Logic";
-               name = "A_ci_multi_readra";
+               name = "A_ci_multi_ipending";
                radix = "hexadecimal";
             }
             SIGNAL aee
             {
                format = "Logic";
-               name = "A_ci_multi_readrb";
+               name = "A_ci_multi_status";
                radix = "hexadecimal";
             }
             SIGNAL aef
             {
                format = "Logic";
-               name = "A_ci_multi_writerc";
+               name = "A_ci_multi_estatus";
                radix = "hexadecimal";
             }
             SIGNAL aeg
             {
                format = "Logic";
-               name = "A_ci_multi_result";
+               name = "A_ci_multi_n";
                radix = "hexadecimal";
             }
             SIGNAL aeh
             {
                format = "Logic";
-               name = "A_ci_multi_clk_en";
+               name = "A_ci_multi_readra";
                radix = "hexadecimal";
             }
             SIGNAL aei
             {
                format = "Logic";
-               name = "A_ci_multi_start";
+               name = "A_ci_multi_readrb";
                radix = "hexadecimal";
             }
             SIGNAL aej
             {
                format = "Logic";
-               name = "A_ci_multi_done";
+               name = "A_ci_multi_writerc";
                radix = "hexadecimal";
             }
             SIGNAL aek
+            {
+               format = "Logic";
+               name = "A_ci_multi_result";
+               radix = "hexadecimal";
+            }
+            SIGNAL ael
+            {
+               format = "Logic";
+               name = "A_ci_multi_clk_en";
+               radix = "hexadecimal";
+            }
+            SIGNAL aem
+            {
+               format = "Logic";
+               name = "A_ci_multi_start";
+               radix = "hexadecimal";
+            }
+            SIGNAL aen
+            {
+               format = "Logic";
+               name = "A_ci_multi_done";
+               radix = "hexadecimal";
+            }
+            SIGNAL aeo
             {
                format = "Logic";
                name = "A_ci_multi_stall";
@@ -3230,22 +3242,10 @@ SYSTEM NIOS
                span = "0x00000010";
                is_bridge = "0";
             }
-            Entry digitalIN/s1
-            {
-               address = "0x000000d0";
-               span = "0x00000010";
-               is_bridge = "0";
-            }
             Entry digitalOUT/s1
             {
                address = "0x000000e0";
                span = "0x00000010";
-               is_bridge = "0";
-            }
-            Entry Servos/avalon_slave
-            {
-               address = "0x00000000";
-               span = "0x00000020";
                is_bridge = "0";
             }
             Entry tick/s1
@@ -3699,170 +3699,6 @@ SYSTEM NIOS
          Synthesis_Only_Files = "";
       }
    }
-   MODULE digitalIN
-   {
-      SLAVE s1
-      {
-         PORT_WIRING 
-         {
-            PORT clk
-            {
-               type = "clk";
-               width = "1";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT reset_n
-            {
-               type = "reset_n";
-               width = "1";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT address
-            {
-               type = "address";
-               width = "2";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT readdata
-            {
-               type = "readdata";
-               width = "8";
-               direction = "output";
-               Is_Enabled = "1";
-            }
-            PORT chipselect
-            {
-               Is_Enabled = "1";
-               direction = "input";
-               type = "chipselect";
-               width = "1";
-            }
-            PORT write_n
-            {
-               Is_Enabled = "1";
-               direction = "input";
-               type = "write_n";
-               width = "1";
-            }
-            PORT writedata
-            {
-               Is_Enabled = "1";
-               direction = "input";
-               type = "writedata";
-               width = "8";
-            }
-         }
-         SYSTEM_BUILDER_INFO 
-         {
-            Bus_Type = "avalon";
-            Write_Wait_States = "0cycles";
-            Read_Wait_States = "1cycles";
-            Hold_Time = "0cycles";
-            Setup_Time = "0cycles";
-            Is_Printable_Device = "0";
-            Address_Alignment = "native";
-            Well_Behaved_Waitrequest = "0";
-            Is_Nonvolatile_Storage = "0";
-            Read_Latency = "0";
-            Is_Memory_Device = "0";
-            Maximum_Pending_Read_Transactions = "0";
-            Minimum_Uninterrupted_Run_Length = "1";
-            Accepts_Internal_Connections = "1";
-            Write_Latency = "0";
-            Is_Flash = "0";
-            Data_Width = "8";
-            Address_Width = "2";
-            Maximum_Burst_Size = "1";
-            Register_Incoming_Signals = "0";
-            Register_Outgoing_Signals = "0";
-            Interleave_Bursts = "0";
-            Linewrap_Bursts = "0";
-            Burst_On_Burst_Boundaries_Only = "0";
-            Always_Burst_Max_Burst = "0";
-            Is_Big_Endian = "0";
-            Is_Enabled = "1";
-            MASTERED_BY clock_crossing_io/m1
-            {
-               priority = "1";
-               Offset_Address = "0x000000d0";
-            }
-            Base_Address = "0x060000d0";
-            Has_IRQ = "0";
-            Address_Group = "0";
-            Is_Readable = "1";
-            Is_Writable = "1";
-         }
-      }
-      PORT_WIRING 
-      {
-         PORT in_port
-         {
-            type = "export";
-            width = "8";
-            direction = "input";
-            Is_Enabled = "1";
-         }
-         PORT out_port
-         {
-            direction = "output";
-            Is_Enabled = "0";
-            width = "8";
-         }
-         PORT bidir_port
-         {
-            direction = "inout";
-            Is_Enabled = "0";
-            width = "8";
-         }
-      }
-      class = "altera_avalon_pio";
-      class_version = "7.08101";
-      SYSTEM_BUILDER_INFO 
-      {
-         Is_Enabled = "1";
-         Instantiate_In_System_Module = "1";
-         Wire_Test_Bench_Values = "1";
-         Top_Level_Ports_Are_Enumerated = "1";
-         Clock_Source = "io_clk";
-         Has_Clock = "1";
-         Date_Modified = "";
-         View 
-         {
-            MESSAGES 
-            {
-            }
-            Settings_Summary = " 8-bit PIO using <br>
-					
-					 input pins with edge type RISING and interrupt source NONE
-					";
-         }
-      }
-      WIZARD_SCRIPT_ARGUMENTS 
-      {
-         Do_Test_Bench_Wiring = "0";
-         Driven_Sim_Value = "0";
-         has_tri = "0";
-         has_out = "0";
-         has_in = "1";
-         capture = "1";
-         Data_Width = "8";
-         reset_value = "0";
-         edge_type = "RISING";
-         irq_type = "NONE";
-         bit_clearing_edge_register = "0";
-         bit_modifying_output_register = "0";
-      }
-      HDL_INFO 
-      {
-         Precompiled_Simulation_Library_Files = "";
-         Simulation_HDL_Files = "";
-         Synthesis_HDL_Files = "__PROJECT_DIRECTORY__/digitalIN.vhd";
-         Synthesis_Only_Files = "";
-      }
-   }
    MODULE digitalOUT
    {
       SLAVE s1
@@ -4025,131 +3861,6 @@ SYSTEM NIOS
          Simulation_HDL_Files = "";
          Synthesis_HDL_Files = "__PROJECT_DIRECTORY__/digitalOUT.vhd";
          Synthesis_Only_Files = "";
-      }
-   }
-   MODULE Servos
-   {
-      SLAVE avalon_slave
-      {
-         PORT_WIRING 
-         {
-            PORT clk
-            {
-               type = "clk";
-               width = "1";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT reset
-            {
-               type = "reset";
-               width = "1";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT readdata
-            {
-               type = "readdata";
-               width = "32";
-               direction = "output";
-               Is_Enabled = "1";
-            }
-            PORT writedata
-            {
-               type = "writedata";
-               width = "32";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT chipselect
-            {
-               type = "chipselect";
-               width = "1";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT read
-            {
-               type = "read";
-               width = "1";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT write
-            {
-               type = "write";
-               width = "1";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-            PORT address
-            {
-               type = "address";
-               width = "3";
-               direction = "input";
-               Is_Enabled = "1";
-            }
-         }
-         SYSTEM_BUILDER_INFO 
-         {
-            Bus_Type = "avalon";
-            Write_Wait_States = "1cycles";
-            Read_Wait_States = "1cycles";
-            Hold_Time = "0cycles";
-            Setup_Time = "0cycles";
-            Is_Printable_Device = "0";
-            Address_Alignment = "dynamic";
-            Well_Behaved_Waitrequest = "0";
-            Is_Nonvolatile_Storage = "0";
-            Address_Span = "32";
-            Read_Latency = "0";
-            Is_Memory_Device = "0";
-            Maximum_Pending_Read_Transactions = "0";
-            Minimum_Uninterrupted_Run_Length = "1";
-            Accepts_Internal_Connections = "1";
-            Write_Latency = "0";
-            Is_Flash = "0";
-            Data_Width = "32";
-            Address_Width = "3";
-            Maximum_Burst_Size = "1";
-            Register_Incoming_Signals = "0";
-            Register_Outgoing_Signals = "0";
-            Interleave_Bursts = "0";
-            Linewrap_Bursts = "0";
-            Burst_On_Burst_Boundaries_Only = "0";
-            Always_Burst_Max_Burst = "0";
-            Is_Big_Endian = "0";
-            Is_Enabled = "1";
-            MASTERED_BY clock_crossing_io/m1
-            {
-               priority = "1";
-               Offset_Address = "0x00000000";
-            }
-            Base_Address = "0x06000000";
-            Address_Group = "0";
-         }
-      }
-      class = "no_legacy_module";
-      class_version = "7.08101";
-      gtf_class_name = "Servos";
-      gtf_class_version = "1.0";
-      SYSTEM_BUILDER_INFO 
-      {
-         Do_Not_Generate = "1";
-         Instantiate_In_System_Module = "0";
-         Is_Bridge = "0";
-         Is_Enabled = "1";
-         Clock_Source = "io_clk";
-         Has_Clock = "1";
-         View 
-         {
-            MESSAGES 
-            {
-            }
-         }
-      }
-      WIZARD_SCRIPT_ARGUMENTS 
-      {
       }
    }
    MODULE motLeft
@@ -5605,7 +5316,7 @@ SYSTEM NIOS
          Has_Clock = "1";
          View 
          {
-            Settings_Summary = "System ID (at last Generate):<br> <b>00000000</b>    (unique ID tag) <br> <b>4F40C8AB</b> (timestamp: Sun Feb 19, 2012 @11:02 AM)";
+            Settings_Summary = "System ID (at last Generate):<br> <b>00000000</b>    (unique ID tag) <br> <b>4F7723DC</b> (timestamp: Sat Mar 31, 2012 @5:33 PM)";
             MESSAGES 
             {
             }
@@ -5614,7 +5325,7 @@ SYSTEM NIOS
       WIZARD_SCRIPT_ARGUMENTS 
       {
          id = "0u";
-         timestamp = "1329645739u";
+         timestamp = "1333208028u";
          regenerate_values = "0";
          MAKE 
          {
@@ -5623,7 +5334,7 @@ SYSTEM NIOS
                verifysysid 
                {
                   All_Depends_On = "0";
-                  Command = "nios2-download $(JTAG_CABLE)                                --sidp=0x000038e8 --id=0 --timestamp=1329645739";
+                  Command = "nios2-download $(JTAG_CABLE)                                --sidp=0x000038e8 --id=0 --timestamp=1333208028";
                   Is_Phony = "1";
                   Target_File = "dummy_verifysysid_file";
                }
@@ -6653,6 +6364,458 @@ SYSTEM NIOS
          Precompiled_Simulation_Library_Files = "";
          Simulation_HDL_Files = "";
          Synthesis_HDL_Files = "__PROJECT_DIRECTORY__/comBeacon.vhd";
+         Synthesis_Only_Files = "";
+      }
+   }
+   MODULE visionSync
+   {
+      SLAVE s1
+      {
+         PORT_WIRING 
+         {
+            PORT clk
+            {
+               type = "clk";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT reset_n
+            {
+               type = "reset_n";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT irq
+            {
+               type = "irq";
+               width = "1";
+               direction = "output";
+               Is_Enabled = "1";
+            }
+            PORT address
+            {
+               type = "address";
+               width = "2";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT write_n
+            {
+               type = "write_n";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT writedata
+            {
+               type = "writedata";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT chipselect
+            {
+               type = "chipselect";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT readdata
+            {
+               type = "readdata";
+               width = "1";
+               direction = "output";
+               Is_Enabled = "1";
+            }
+         }
+         SYSTEM_BUILDER_INFO 
+         {
+            Has_IRQ = "1";
+            Bus_Type = "avalon";
+            Write_Wait_States = "0cycles";
+            Read_Wait_States = "1cycles";
+            Hold_Time = "0cycles";
+            Setup_Time = "0cycles";
+            Is_Printable_Device = "0";
+            Address_Alignment = "native";
+            Well_Behaved_Waitrequest = "0";
+            Is_Nonvolatile_Storage = "0";
+            Read_Latency = "0";
+            Is_Memory_Device = "0";
+            Maximum_Pending_Read_Transactions = "0";
+            Minimum_Uninterrupted_Run_Length = "1";
+            Accepts_Internal_Connections = "1";
+            Write_Latency = "0";
+            Is_Flash = "0";
+            Data_Width = "1";
+            Address_Width = "2";
+            Maximum_Burst_Size = "1";
+            Register_Incoming_Signals = "0";
+            Register_Outgoing_Signals = "0";
+            Interleave_Bursts = "0";
+            Linewrap_Bursts = "0";
+            Burst_On_Burst_Boundaries_Only = "0";
+            Always_Burst_Max_Burst = "0";
+            Is_Big_Endian = "0";
+            Is_Enabled = "1";
+            MASTERED_BY cpu/data_master
+            {
+               priority = "1";
+               Offset_Address = "0x00000800";
+            }
+            IRQ_MASTER cpu/data_master
+            {
+               IRQ_Number = "6";
+            }
+            Base_Address = "0x00000800";
+            Address_Group = "0";
+            Is_Readable = "1";
+            Is_Writable = "1";
+         }
+      }
+      PORT_WIRING 
+      {
+         PORT in_port
+         {
+            type = "export";
+            width = "1";
+            direction = "input";
+            Is_Enabled = "1";
+         }
+         PORT out_port
+         {
+            direction = "output";
+            Is_Enabled = "0";
+            width = "1";
+         }
+         PORT bidir_port
+         {
+            direction = "inout";
+            Is_Enabled = "0";
+            width = "1";
+         }
+      }
+      class = "altera_avalon_pio";
+      class_version = "7.08101";
+      SYSTEM_BUILDER_INFO 
+      {
+         Is_Enabled = "1";
+         Instantiate_In_System_Module = "1";
+         Wire_Test_Bench_Values = "1";
+         Top_Level_Ports_Are_Enumerated = "1";
+         Clock_Source = "io_clk";
+         Has_Clock = "1";
+         Date_Modified = "";
+         View 
+         {
+            MESSAGES 
+            {
+            }
+            Settings_Summary = " 1-bit PIO using <br>
+					
+					 input pins with edge type RISING and interrupt source LEVEL
+					";
+         }
+      }
+      WIZARD_SCRIPT_ARGUMENTS 
+      {
+         Do_Test_Bench_Wiring = "0";
+         Driven_Sim_Value = "0";
+         has_tri = "0";
+         has_out = "0";
+         has_in = "1";
+         capture = "1";
+         Data_Width = "1";
+         reset_value = "0";
+         edge_type = "RISING";
+         irq_type = "LEVEL";
+         bit_clearing_edge_register = "0";
+         bit_modifying_output_register = "0";
+      }
+      HDL_INFO 
+      {
+         Precompiled_Simulation_Library_Files = "";
+         Simulation_HDL_Files = "";
+         Synthesis_HDL_Files = "__PROJECT_DIRECTORY__/visionSync.vhd";
+         Synthesis_Only_Files = "";
+      }
+   }
+   MODULE comVision
+   {
+      SLAVE s1
+      {
+         PORT_WIRING 
+         {
+            PORT clk
+            {
+               type = "clk";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT reset_n
+            {
+               type = "reset_n";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT irq
+            {
+               type = "irq";
+               width = "1";
+               direction = "output";
+               Is_Enabled = "1";
+            }
+            PORT address
+            {
+               type = "address";
+               width = "3";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT begintransfer
+            {
+               type = "begintransfer";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT chipselect
+            {
+               type = "chipselect";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT read_n
+            {
+               type = "read_n";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT write_n
+            {
+               type = "write_n";
+               width = "1";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT writedata
+            {
+               type = "writedata";
+               width = "16";
+               direction = "input";
+               Is_Enabled = "1";
+            }
+            PORT readdata
+            {
+               type = "readdata";
+               width = "16";
+               direction = "output";
+               Is_Enabled = "1";
+            }
+            PORT dataavailable
+            {
+               type = "dataavailable";
+               width = "1";
+               direction = "output";
+               Is_Enabled = "1";
+            }
+            PORT readyfordata
+            {
+               type = "readyfordata";
+               width = "1";
+               direction = "output";
+               Is_Enabled = "1";
+            }
+         }
+         SYSTEM_BUILDER_INFO 
+         {
+            Has_IRQ = "1";
+            Bus_Type = "avalon";
+            Write_Wait_States = "1cycles";
+            Read_Wait_States = "1cycles";
+            Hold_Time = "0cycles";
+            Setup_Time = "0cycles";
+            Is_Printable_Device = "1";
+            Address_Alignment = "native";
+            Well_Behaved_Waitrequest = "0";
+            Is_Nonvolatile_Storage = "0";
+            Read_Latency = "0";
+            Is_Memory_Device = "0";
+            Maximum_Pending_Read_Transactions = "0";
+            Minimum_Uninterrupted_Run_Length = "1";
+            Accepts_Internal_Connections = "1";
+            Write_Latency = "0";
+            Is_Flash = "0";
+            Data_Width = "16";
+            Address_Width = "3";
+            Maximum_Burst_Size = "1";
+            Register_Incoming_Signals = "0";
+            Register_Outgoing_Signals = "0";
+            Interleave_Bursts = "0";
+            Linewrap_Bursts = "0";
+            Burst_On_Burst_Boundaries_Only = "0";
+            Always_Burst_Max_Burst = "0";
+            Is_Big_Endian = "0";
+            Is_Enabled = "1";
+            MASTERED_BY cpu/data_master
+            {
+               priority = "1";
+               Offset_Address = "0x00000820";
+            }
+            IRQ_MASTER cpu/data_master
+            {
+               IRQ_Number = "7";
+            }
+            Base_Address = "0x00000820";
+            Address_Group = "0";
+         }
+      }
+      PORT_WIRING 
+      {
+         PORT rxd
+         {
+            type = "export";
+            width = "1";
+            direction = "input";
+            Is_Enabled = "1";
+         }
+         PORT txd
+         {
+            type = "export";
+            width = "1";
+            direction = "output";
+            Is_Enabled = "1";
+         }
+         PORT cts_n
+         {
+            direction = "input";
+            width = "1";
+            Is_Enabled = "0";
+         }
+         PORT rts_n
+         {
+            direction = "output";
+            width = "1";
+            Is_Enabled = "0";
+         }
+      }
+      class = "altera_avalon_uart";
+      class_version = "7.08101";
+      iss_model_name = "altera_avalon_uart";
+      SYSTEM_BUILDER_INFO 
+      {
+         Instantiate_In_System_Module = "1";
+         Is_Enabled = "1";
+         Iss_Launch_Telnet = "0";
+         Top_Level_Ports_Are_Enumerated = "1";
+         View 
+         {
+            Settings_Summary = "8-bit UART with 115200 baud, <br>
+                    1 stop bits and N parity";
+            Is_Collapsed = "1";
+            MESSAGES 
+            {
+            }
+         }
+         Clock_Source = "io_clk";
+         Has_Clock = "1";
+      }
+      SIMULATION 
+      {
+         DISPLAY 
+         {
+            SIGNAL a
+            {
+               name = "  Bus Interface";
+               format = "Divider";
+            }
+            SIGNAL b
+            {
+               name = "chipselect";
+            }
+            SIGNAL c
+            {
+               name = "address";
+               radix = "hexadecimal";
+            }
+            SIGNAL d
+            {
+               name = "writedata";
+               radix = "hexadecimal";
+            }
+            SIGNAL e
+            {
+               name = "readdata";
+               radix = "hexadecimal";
+            }
+            SIGNAL f
+            {
+               name = "  Internals";
+               format = "Divider";
+            }
+            SIGNAL g
+            {
+               name = "tx_ready";
+            }
+            SIGNAL h
+            {
+               name = "tx_data";
+               radix = "ascii";
+            }
+            SIGNAL i
+            {
+               name = "rx_char_ready";
+            }
+            SIGNAL j
+            {
+               name = "rx_data";
+               radix = "ascii";
+            }
+         }
+         INTERACTIVE_OUT log
+         {
+            enable = "0";
+            file = "_log_module.txt";
+            radix = "ascii";
+            signals = "temp,list";
+            exe = "perl -- tail-f.pl";
+         }
+         INTERACTIVE_IN drive
+         {
+            enable = "0";
+            file = "_input_data_stream.dat";
+            mutex = "_input_data_mutex.dat";
+            log = "_in.log";
+            rate = "100";
+            signals = "temp,list";
+            exe = "perl -- uart.pl";
+         }
+      }
+      WIZARD_SCRIPT_ARGUMENTS 
+      {
+         baud = "115200";
+         data_bits = "8";
+         fixed_baud = "1";
+         parity = "N";
+         stop_bits = "1";
+         sync_reg_depth = "2";
+         use_cts_rts = "0";
+         use_eop_register = "0";
+         sim_true_baud = "0";
+         sim_char_stream = "";
+         relativepath = "1";
+      }
+      HDL_INFO 
+      {
+         Precompiled_Simulation_Library_Files = "";
+         Simulation_HDL_Files = "";
+         Synthesis_HDL_Files = "__PROJECT_DIRECTORY__/comVision.vhd";
          Synthesis_Only_Files = "";
       }
    }
